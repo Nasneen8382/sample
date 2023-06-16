@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+    <title>
+        Login Required
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+        <!-- Brand -->
+
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                
+                <li class="nav-item">
+                    <img src="{{ i.Image.url }}"
+                        width="40" height="40" class="rounded-circle">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{user.first_name}}  {{user.last_name}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"
+                            style="font-size:24px"></i></a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+     
+    <!-- <input name="id" value="{{user.id }}" > -->
+
+     
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <div class="card mb-3" style="border-radius: .5rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4 gradient-custom text-center"
+                                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                <!-- <img src="{{ i.Image.url }}"
+                                    alt="Avatar" class="img-fluid my-5" style="width: 80px;" /> -->
+                                <h4>{{user.first_name}}  {{user.last_name}}</h4>
+                                <p>Teacher</p><p>{{tchr.Age}}</p>
+                                <!-- {% for i in tchr %}
+                                {% endfor %} -->
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <h6>Information</h6>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>Email</h6>
+                                            <p class="text-muted">{{user.email}}</p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <!-- <h6>Phone</h6>
+                                            <p class="text-muted">{{user.Phone}}</p> -->
+                                        </div>
+                                    </div>
+                                    <h6>Edit</h6>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <a href="{% url 'editpage' user.id%}" class="text-dark m-3"><i class="far fa-edit mb-5" style="font-size: 45px;"></i></a>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+       
+
+</body>
+
+</html>

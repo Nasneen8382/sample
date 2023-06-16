@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-1">
+    <h1 class="alert text-center">
+        SHOW STUDENT DETAILS
+    </h1>
+    <a class="btn" href="{% url 'student' %}"><i class="fa fa-plus"></i>Add</a>
+    
+    <div class="row">
+            <table class="table text-center ">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PHONE</th>
+                        <th scope="col">COURSE</th>
+                        <!-- <th scope="col">IMAGE</th> -->
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in sdata %}
+                    <tr>
+                        <td class="pt-4">{{ s.id}}</td>
+                        <td class="pt-4">{{ s.std_fname}} {{ s.std_lname}}</td>
+                        <td class="pt-4">{{ s.std_phone}}</td>
+                        <td class="pt-4">{{ s.std_course.Course_Name}}</td>
+                        <!-- <td>
+                            <img src="{{ s.std_image.url }}" class="w-25">
+                        </td> -->
+                        <td>
+                            <a href="{% url 'std_editpage' s.id %}">
+                                <i class="fa fa-edit text-dark" style="font-size: large;"></i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                        
+                            <a href="{% url 'studentdelete' s.id %}">
+                                <i class="fa fa-trash text-dark" style="font-size: large;"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+{% endblock %}

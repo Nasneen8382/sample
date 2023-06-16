@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-3"></div>
+
+    <div class="entry col-6">
+        <h1 class="alert text-center">SIGN UP</h1>
+
+        <form method="POST" action="{% url 'addcourse' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="coursename" class="form-control mt-3" placeholder="Enter Course Name">
+            <input type="number" name="coursefees" class="form-control mt-3 mb-3" placeholder="Enter Course Fees">
+            <button type="submit" class="btn btn-dark mt-3 " style="width: 650px;">Submit</button>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+{% endblock %}

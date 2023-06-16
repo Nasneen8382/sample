@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-1">
+    <h2 class="alert text-center">
+        USER DATA
+    </h2>
+    <a class="btn" href="{% url 'student' %}"><i class="fa fa-plus"></i>Add</a>
+    
+    <div class="row">
+            <table class="table text-center ">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">PHONE</th>
+                        <th scope="col">ADDRESS</th>
+                        <th scope="col">COURSE</th>
+                        <!-- <th scope="col">IMAGE</th> -->
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in udata %}
+                    <tr>
+                        <td class="pt-4">{{ s.id}}</td>
+                        <td class="pt-4">{{ s.User.first_name}} {{ s.User.last_name}}</td>
+                        <td class="pt-4">{{ s.User.email}}</td>
+                        <td class="pt-4">{{ s.Phone}}</td>
+                        <td class="pt-4">{{ s.Address}}</td>
+                        <td class="pt-4">{{ s.Course.Course_Name}}</td>
+                        <!-- <td>
+                            <img src="{{ s.std_image.url }}" class="w-25">
+                        </td> -->
+                        <td>
+                            <a href="{% url 'user_view' s.id %}">
+                                <i class="fa fa-eye text-dark" style="font-size: large;"></i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                        
+                            <a href="{% url 'userdelete' s.id %}">
+                                <i class="fa fa-trash text-dark" style="font-size: large;"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+{% endblock %}

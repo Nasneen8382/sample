@@ -1,0 +1,132 @@
+<html lang="en">
+
+<head>
+    <title>
+        Login Required
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <img src="" width="40" height="40" class="rounded-circle">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"
+                            style="font-size:24px"></i></a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+
+
+    <div class="row">
+        <div class="col-3"></div>
+
+        <div class="entry col-6">
+            <h2 class="alert text-center">Edit User</h2>
+
+            <form method="POST" action="/edit/{{tchr.id}}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">First Name</label>
+                        <input type="text" class="form-control" name="fname" value="{{tchr.User.first_name}}">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Last Name</label>
+                        <input type="text" class="form-control" name="lname" value="{{tchr.User.last_name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Email</label>
+                        <input type="email" class="form-control" name="email" value="{{tchr.User.email}}">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" name="uname" value="{{tchr.User.username}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Age</label>
+                        <input type="number" class="form-control" name="age" value="{{tchr.Age}}">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Phone</label>
+                        <input type="number" class="form-control" name="phone" value="{{tchr.Phone}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Address</label>
+                        <input type="text" class="form-control" name="address" value="{{tchr.Address}}">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Course</label>
+                       <!--  <input type="text" class="form-control" name="course" value="{{tchr.Course.Course_Name}}"> -->
+                        <select class="form-control" name="select" id="qwerty">
+                            <option value="{{tchr.Course.id}}">{{tchr.Course.Course_Name}}</option>
+                            {% for i in course %}
+
+                            <option value="{{ i.id }}">{{ i.Course_Name }}</option>
+
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <img src="{{ tchr.Image.url }}" class="w-25">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Image</label>
+                        <input type="file" name="file" class="form-control" accept="image/*">
+                    </div>
+                </div>
+
+
+                <div class="text-center mt-4">
+                    <input class="btn btn-dark rounded w-100" type="submit" value="Submit">
+                </div>
+
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div>
+</body>
+
+</html>

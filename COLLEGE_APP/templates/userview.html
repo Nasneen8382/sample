@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    
+</style>
+<a class="btn" href="{% url 'user_data' %}"><i class="fa fa-arrow-left"></i>Back</a>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 ">
+            <div class="card mb-3" style="border-radius: .5rem;">
+                <div class="row g-0 ">
+                    <div class="col-md-4 gradient-custom text-center"
+                        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                        <img src="{{ u.Image.url }}" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                        <h4>{{u.User.first_name}} {{u.User.last_name}}</h4>
+                        <p>{{u.User.username}}</p>
+                        <p>{{u.Course.Course_Name}}</p>
+
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card-body p-4">
+                            <h6>Information</h6>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>Email</h6>
+                                    <p class="text-muted">{{u.User.email}}</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>Phone</h6>
+                                    <p class="text-muted">{{u.Phone}}</p>
+                                </div>
+                            </div>
+                            <h6>Other Info</h6>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>Address</h6>
+                                    <p class="text-muted">{{u.Address}}</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>Age</h6>
+                                    <p class="text-muted">{{u.Age}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
